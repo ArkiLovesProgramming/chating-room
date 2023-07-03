@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+	<link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div class="group-name">
+    <span class="h1" th:text="${groupname}"></span>
+	<div class="d-none" th:text="${session.user.getUsername()}"></div>
+</div>
+<div class="group-name-fake">
+    <span class="h1"></span>
+</div>
+<div class="history-window">
+	<div class="history-area">
+		<div class="history-item">
+		  <div class="item-content">
+		    <span>Entry Condition: Administrator successfully logs in and accesses the administrator control panel.</span>
+		  </div>
+		  <div class="item-name">user name</div>
+		</div>
+		<div class="history-item">
+		  <div class="item-content">
+		    <span>
+				
+				Use Case Description Table - Administrator Operations
+				
+				Table Name: Administrator Operations
+				
+				Actors:
+				
+				System
+				Administrator
+				Event Flow:
+				
+				Manage User List:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "User Management" feature.
+				System displays the user list.
+				Administrator can view user information, disable/enable user accounts, delete users, etc.
+				Administrator saves the modifications made to the user list.
+				Exit Condition: Administrator exits the user management feature.
+				Manage Blog Content:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "Blog Management" feature.
+				System displays the blog list.
+				Administrator can view blog details, edit blog content, delete blogs, etc.
+				Administrator saves the modifications made to the blogs.
+				Exit Condition: Administrator exits the blog management feature.
+				Manage Comments:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "Comment Management" feature.
+				System displays the comment list.
+				Administrator can view comment content, delete comments, etc.
+				Administrator saves the modifications made to the comments.
+				Exit Condition: Administrator exits the comment management feature.
+				Remove Blogs or Request Revision:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator reviews the blog list in the blog management feature.
+				If a blog does not comply with the guidelines, the administrator can choose to remove the blog or request the blog author to make revisions.
+				Administrator saves the modifications made to the blogs.
+				Exit Condition: Administrator exits the blog management feature.
+				Entry/Exit Conditions:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Exit Condition: Administrator exits the respective feature module.
+				Quality Requirements:
+				
+				The system should provide a secure administrator login and authentication mechanism.
+				The system should ensure accurate and effective management operations for user lists, blog content, and comments.
+				The system should provide timely saving and refreshing mechanisms to ensure that modifications made by the administrator are correctly saved and reflected in real-time.
+				The system should provide a user-friendly interface and clear operational guidance to facilitate administrator management operations.
+				The system should demonstrate high availability and 
+				
+				Use Case Description Table - Administrator Operations
+				
+				Table Name: Administrator Operations
+				
+				Actors:
+				
+				System
+				Administrator
+				Event Flow:
+				
+				Manage User List:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "User Management" feature.
+				System displays the user list.
+				Administrator can view user information, disable/enable user accounts, delete users, etc.
+				Administrator saves the modifications made to the user list.
+				Exit Condition: Administrator exits the user management feature.
+				Manage Blog Content:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "Blog Management" feature.
+				System displays the blog list.
+				Administrator can view blog details, edit blog content, delete blogs, etc.
+				Administrator saves the modifications made to the blogs.
+				Exit Condition: Administrator exits the blog management feature.
+				Manage Comments:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "Comment Management" feature.
+				System displays the comment list.
+				Administrator can view comment content, delete comments, etc.
+				Administrator saves the modifications made to the comments.
+				Exit Condition: Administrator exits the comment management feature.
+				Remove Blogs or Request Revision:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator reviews the blog list in the blog management feature.
+				If a blog does not comply with the guideline
+				
+				Use Case Description Table - Administrator Operations
+				
+				Table Name: Administrator Operations
+				
+				Actors:
+				
+				System
+				Administrator
+				Event Flow:
+				
+				Manage User List:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "User Management" feature.
+				System displays the user list.
+				Administrator can view user information, disable/enable user accounts, delete users, etc.
+				Administrator saves the modifications made to the user list.
+				Exit Condition: Administrator exits the user management feature.
+				Manage Blog Content:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "Blog Management" feature.
+				System displays the blog list.
+				Administrator can view blog details, edit blog content, delete blogs, etc.
+				Administrator saves the modifications made to the blogs.
+				Exit Condition: Administrator exits the blog management feature.
+				Manage Comments:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator selects the "Comment Management" feature.
+				System displays the comment list.
+				Administrator can view comment content, delete comments, etc.
+				Administrator saves the modifications made to the comments.
+				Exit Condition: Administrator exits the comment management feature.
+				Remove Blogs or Request Revision:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Event Flow:
+				Administrator reviews the blog list in the blog management feature.
+				If a blog does not comply with the guidelines, the administrator can choose to remove the blog or request the blog author to make revisions.
+				Administrator saves the modifications made to the blogs.
+				Exit Condition: Administrator exits the blog management feature.
+				Entry/Exit Conditions:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Exit Condition: Administrator exits the respective feature module.
+				Quality Requirements:
+				
+				The system should provide a secure administrator login and authentication mechanism.
+				The system should ensure accurate and effective management operations for user lists, blog content, and comments.
+				The system should provide timely saving and refreshing mechanisms to ensure that modifications made by the administrator are correctly saved and reflected in real-time.
+				The system should provide a user-friendly interface and clear operational guidance to facilitate administrator management operations.
+				The system should demonstrate high availability and s, the administrator can choose to remove the blog or request the blog author to make revisions.
+				Administrator saves the modifications made to the blogs.
+				Exit Condition: Administrator exits the blog management feature.
+				Entry/Exit Conditions:
+				
+				Entry Condition: Administrator successfully logs in and accesses the administrator control panel.
+				Exit Condition: Administrator exits the respective feature module.
+				Quality Requirements:
+				
+				The system should provide a secure administrator login and authentication mechanism.
+				The system should ensure accurate and effective management operations for user lists, blog content, and comments.
+				The system should provide timely saving and refreshing mechanisms to ensure that modifications made by the administrator are correctly saved and reflected in real-time.
+				The system should provide a user-friendly interface and clear operational guidance to facilitate administrator management operations.
+				The system should demonstrate high availability and 
+			</span>
+		  </div>
+		  <div class="item-name">user name</div>
+		</div>
+		<div class="history-item">
+		  <div class="item-content">
+		    <span>Entry Condition: Administrator successfully logs in and accesses the administrator control panel.</span>
+		  </div>
+		  <div class="item-name">user name</div>
+		</div>
+		<div class="history-item">
+		  <div class="item-content">
+		    <span>Entry Condition: Administrator successfully logs in and accesses the administrator control panel.</span>
+			<img src="../static/img/test.jpg"/>
+		  </div>
+		  <div class="item-name">user name</div>
+		</div>
+		<div class="history-item">
+		  <div class="item-content">
+		    <span>Entry Condition: Administrator successfully logs in and accesses the administrator control panel.</span>
+			<video src="../static/video/testvideo.MP4" controls autoplay muted></video> 
+		  </div>
+		  <div class="item-name">user name</div>
+		</div>
+	</div>
+	<div class="sending-area d-flex">
+		<label style="text-align: center; width: 42px; height: 42px; margin: 0px;" for="file">
+			<svg style="width: 30px; height: 30px; line-height: 42px;" t="1688233763280" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1346" width="200" height="200"><path d="M810.666667 213.333333v597.333334H213.333333V213.333333h597.333334z m0-85.333333H213.333333c-46.933333 0-85.333333 38.4-85.333333 85.333333v597.333334c0 46.933333 38.4 85.333333 85.333333 85.333333h597.333334c46.933333 0 85.333333-38.4 85.333333-85.333333V213.333333c0-46.933333-38.4-85.333333-85.333333-85.333333z m-207.36 378.026667l-128 165.12L384 560.64 256 725.333333h512l-164.693333-219.306666z" p-id="1347" fill="#ffffff"></path></svg>
+		</label>
+		<input id="file" hidden type="file" name="file" accept=""/>
+	    <input class="flex-grow-1" type="text" name="content"/>
+	    <button class="btn btn-primary" onclick="doSend()">Send</button>
+	</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	$(function () {
+		init();
+	});
+	var output;
+	var websocket;
+
+	function init() {
+		scrollToEnd();
+		output = $(".history-area");
+		addsocket();
+	}
+
+	function addsocket() {
+		var groupname = $(".group-name span").text();
+		var username = $(".group-name div").text();
+		var ws = "ws://localhost:8081/websocket/" + groupname + "/" +username;
+		if (ws == '') {
+			alert("请填写websocket的地址");
+			return false;
+		}
+		StartWebSocket(ws);
+	}
+
+	function closesocket() {
+		websocket.close();
+	}
+
+	function StartWebSocket(wsUri) {
+		websocket = new WebSocket(wsUri);
+		websocket.onopen = function(evt) {
+			onOpen(evt)
+		};
+		websocket.onclose = function(evt) {
+			onClose(evt)
+		};
+		websocket.onmessage = function(evt) {
+			onMessage(evt)
+		};
+		websocket.onerror = function(evt) {
+			onError(evt)
+		};
+	}
+
+	function onOpen(evt) {
+		writeToScreen("连接成功，现在你可以发送信息啦！！！");
+	}
+
+	function onClose(evt) {
+		writeToScreen("<span style='color:red'>websocket连接已断开!!!</span>");
+		websocket.close();
+	}
+
+	function onMessage(evt) {
+		writeToScreen('<span style="color:blue">服务端回应&nbsp;' + '</span><br/><span class="bubble">' +
+				evt.data + '</span>');
+	}
+
+	function onError(evt) {
+		writeToScreen('<span style="color: red;">发生错误:</span> ' + evt.data);
+	}
+
+	function doSend() {
+		var message = $(".sending-area input[name='content']").val();
+		$(".sending-area input[name='content']").val("");
+		if (message == '') {
+			alert("请先填写发送信息");
+			$("#message").focus();
+			return false;
+		}
+		if (typeof websocket === "undefined") {
+			alert("websocket还没有连接，或者连接失败，请检测");
+			return false;
+		}
+		if (websocket.readyState == 3) {
+			alert("websocket已经关闭，请重新连接");
+			return false;
+		}
+		writeToScreen(message);
+		websocket.send(message);
+		console.log(websocket);
+	}
+
+	function writeToScreen(message) {
+		var div = $("<div class=\"history-item\"></div>");
+		var div1 = $("<div class=\"item-content\">\n" +
+				"\t\t\t\t<span>" + message + "</span>\n" +
+				"\t\t\t</div>");
+		var div2 = $("<div class=\"item-name\">" + $(".group-name div").text() + "</div>");
+		div.append(div1);
+		div.append(div2);
+		output.append(div);
+		scrollToEnd();
+	}
+
+
+	function scrollToEnd(){//滚动到底部
+		var divs = $(".history-area");
+		var totalHeight = 0;
+		divs.children().each(function() {
+			totalHeight += $(this).outerHeight(true); // outerHeight(true) includes margin
+		});
+		$(".history-area").scrollTop(totalHeight);
+	}
+
+	function en(event) {
+		var evt = evt ? evt : (window.event ? window.event : null);
+		if (evt.keyCode == 13) {
+			doSend()
+		}
+	}
+</script>
+</body>
+</html>
