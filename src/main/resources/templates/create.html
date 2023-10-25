@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Group Create</title>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+		<link rel="stylesheet" th:href="@{/css/index.css}">
+	</head>
+	<body>
+		<div class="group-name-fake">
+		    <span class="h1">Group Info</span>
+		</div>
+		<form target="_top" th:action="@{/create}">
+			<div class="mb-3 mt-3">
+				<label for="groupname" class="form-label">Email:</label>
+				<input type="tet" class="form-control" id="groupname" placeholder="Enter group name" name="groupname">
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	</body>
+</html>

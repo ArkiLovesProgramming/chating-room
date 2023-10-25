@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div class="container content-box">
+    <div class="row">
+        <div class="col-3 content-col">
+            <div>
+                <span class="h1" th:text="${session.user!=null ? session.user.username : 'Login first'}"></span>
+            </div>
+            <a th:href="@{/home/logout}" th:if="${session.user!=null}" class="btn btn-primary">Log out</a>
+            <a th:each="groupname : ${session.user != null ? session.user.groups : null}" class="group-item" target="targetwindow" th:href="@{'/home/chatwin/' + ${groupname}}">
+                <span th:text="${groupname}"></span>
+            </a>
+			<a th:if="${session.user!=null}" th:href="@{/home/create}" target="targetwindow" class="group-item"><span>Create</span></a>
+            <a th:if="${session.user==null}" th:href="@{/home/login}" target="targetwindow" class="group-item"><span>Login in</span></a>
+        </div>
+        <div class="col-9 content-col">
+            <iframe name="targetwindow" th:src="@{/empty}"></iframe>
+        </div>
+    </div>
+</div>
+    <script>
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+[
+  {
+    "username": "arki",
+    "password": "123",
+    "groups": ["chatingroom1"]
+  },
+  {
+    "username": "alisha",
+    "password": "123",
+    "groups": ["chatingroom1"]
+  },
+  {
+    "username": "shuai",
+    "password": "123",
+    "groups": ["chatingroom1"]
+  },
+  {
+    "username": "ziye",
+    "password": "123",
+    "groups": ["chatingroom1"]
+  }
+]

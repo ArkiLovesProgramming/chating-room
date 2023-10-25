@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+	<link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<div class="group-name">
+    <span class="h1" th:text="${groupname}"></span>
+	<div class="d-none" th:text="${session.username}"></div>
+</div>
+<div class="group-name-fake">
+    <span class="h1"></span>
+</div>
+<div class="history-window">
+	<div class="history-area">
+
+	</div>
+	<div class="sending-area d-flex">
+		<div class="sending-img-on d-none">
+			<img class="sending-img" src="../static/img/test.jpg"/>
+		</div>
+		<label style="text-align: center; width: 42px; height: 42px; margin: 0px;" for="msg-file-input">
+			<svg style="width: 30px; height: 30px; line-height: 42px;" t="1688233763280" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1346" width="200" height="200"><path d="M810.666667 213.333333v597.333334H213.333333V213.333333h597.333334z m0-85.333333H213.333333c-46.933333 0-85.333333 38.4-85.333333 85.333333v597.333334c0 46.933333 38.4 85.333333 85.333333 85.333333h597.333334c46.933333 0 85.333333-38.4 85.333333-85.333333V213.333333c0-46.933333-38.4-85.333333-85.333333-85.333333z m-207.36 378.026667l-128 165.12L384 560.64 256 725.333333h512l-164.693333-219.306666z" p-id="1347" fill="#ffffff"></path></svg>
+		</label>
+		<input id="msg-file-input" hidden type="file" name="file" accept=""/>
+	    <input class="flex-grow-1" type="text" name="content"/>
+	    <button class="btn btn-primary" onclick="doSend()">Send</button>
+	</div>
+</div>
+</div>
+<script th:src="@{/js/jquery-3.5.1.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/chatwindow.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+	$(function () {
+		init();
+	});
+	var output;
+	var websocket;
+
+	function init() {
+		scrollToEnd();
+		output = $(".history-area");
+		addsocket();
+	}
+
+	function addsocket() {
+		var groupname = $(".group-name span").text();
+		var username = $(".group-name div").text();
+		var ws = "ws://localhost:8080/websocket/" + groupname + "/" +username;
+		if (ws == '') {
+			alert("fill out websocket's address");
+			return false;
+		}
+		StartWebSocket(ws);
+	}
+
+	function closesocket() {
+		websocket.close();
+	}
+
+	function StartWebSocket(wsUri) {
+		websocket = new WebSocket(wsUri);
+		websocket.onopen = function(evt) {
+			onOpen(evt)
+		};
+		websocket.onclose = function(evt) {
+			onClose(evt)
+		};
+		websocket.onmessage = function(evt) {
+			onMessage(evt)
+		};
+		websocket.onerror = function(evt) {
+			onError(evt)
+		};
+	}
+
+	function onOpen(evt) {
+		let msg = "{\n" +
+				"    \"code\":\"1\",\n" +
+				"    \"msg\":\"[Client end notification]:connected successfully, you can send message now！！！\",\n" +
+				"    \"sender\":\"client system\"\n" +
+				"}";
+		writeToScreen(msg);
+	}
+
+	function onClose(evt) {
+		let msg = "{\n" +
+				"    \"code\":\"1\",\n" +
+				"    \"msg\":\"<span style='color:red'>websocket disconnected!!!</span>\",\n" +
+				"    \"sender\":\"client system\"\n" +
+				"}";
+		writeToScreen(msg);
+		websocket.close();
+	}
+
+	function onMessage(evt) {
+		writeToScreen(evt.data);
+	}
+
+	function onError(evt) {
+		writeToScreen('<span style="color: red;">error:</span> ' + evt.data);
+	}
+
+	function doSend() {
+		var message = $(".sending-area input[name='content']").val();
+		$(".sending-area input[name='content']").val("");
+		if (message == '' && $("#msg-file-input").val() == null) {
+			alert("message field empty");
+			$("#message").focus();
+			return false;
+		}
+		if (typeof websocket === "undefined") {
+			alert("websocket has not been connected or fail to connect, please inspect");
+			return false;
+		}
+		if (websocket.readyState == 3) {
+			alert("websocket disconnected, you need to connect again");
+			return false;
+		}
+		if (message != '') {
+			//message = message + "//" + $(".group-name div").text();	//这样就可以在信息下面放入发送者名字了
+			message = JSON.stringify({code:1, msg:message, sender:$(".group-name div").text()});
+			writeToScreen(message);
+			websocket.send(message);
+			console.log(websocket);
+		}
+		// 如果有文件就把文件也发了
+		if ($("#msg-file-input").val() != null){
+			var files = document.querySelector("#msg-file-input").files
+			if(files.length>0){
+				var fileReader = new FileReader();
+				fileReader.readAsDataURL(files[0])
+				fileReader.onload=function (e) {
+					var s = JSON.stringify({code:2, msg:e.target.result, sender:$(".group-name div").text()});
+					writeToScreen(s);
+					console.log(s)
+					websocket.send(s)
+					$(".sending-img-on").addClass("d-none");
+					$("#msg-file-input").val(null);
+				}
+			}
+		}
+	}
+
+	function writeToScreen(message) {
+		let messages = JSON.parse(message);
+		console.log(messages);
+		var div = $("<div class=\"history-item\"></div>");
+		if (messages.code == 1 || messages.code == "1") {
+			var div1 = $("<div class=\"item-content\">\n" +
+					"\t\t\t\t<span>" + messages.msg + "</span>\n" +
+					"\t\t\t</div>");
+		} else if (messages.code == 2 || messages.code == "2") {
+			var div1 = $("<div class=\"item-content\">\n" +
+					"\t\t\t\t<img src=" + "1111" + "/>\n" +
+					"\t\t\t</div>");
+		}
+
+
+		var div2 = $("<div class=\"item-name\">" + messages.sender + "</div>");
+
+		div.append(div1);
+		div.append(div2);
+		output.append(div);
+		$(".history-area .history-item:last-child .item-content img").attr("src", messages.msg);
+		scrollToEnd();
+	}
+
+
+	function scrollToEnd(){//scroll to the bottom
+		var divs = $(".history-area");
+		var totalHeight = 0;
+		divs.children().each(function() {
+			totalHeight += $(this).outerHeight(true); // outerHeight(true) includes margin
+		});
+		$(".history-area").scrollTop(totalHeight);
+	}
+
+
+	$(document).keyup(function(event){
+		if(event.keyCode ==13){
+			$(".sending-area button").click();
+		}
+	});
+</script>
+</body>
+</html>
