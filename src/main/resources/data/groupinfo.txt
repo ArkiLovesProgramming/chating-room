@@ -1,0 +1,6 @@
+[
+{
+    "groupname": "chatingroom1",
+    "users": ["arki", "alisha", "shuai", "ziye"]
+}
+]

@@ -1,11 +1,11 @@
 html, body{
 	height: 100%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 .content-box{
 	height: 780px;
-	margin-top: 50px;
+	/*margin-top: 50px;*/
 }
 .content-box>div{
 	height: 100%;
@@ -39,7 +39,11 @@ html, body{
 	padding: 20px;
 }
 
-.content-col>a{
+.content-col>a:nth-child(2){
+	margin-bottom: 10px;
+}
+
+.content-col>a:nth-child(n+3){
 	height: 66px;
 	width: 100%;
 	padding: 20px;
@@ -75,6 +79,12 @@ html, body{
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
+	height: 66px;
+	width: 100%;
+	padding: 20px;
+	display: block;
+	color: black;
+	text-decoration: none;
 }
 
 .group-name{
@@ -177,3 +187,19 @@ html, body{
 	max-height: 320px;
 }
 
+
+/*今天改的*/
+.sending-area{
+	/*background-color: aqua;*/
+}
+
+.sending-area > div{
+	height: 42px;
+	overflow: hidden;
+	margin-right: 6px;
+	border-radius: 10px;
+}
+
+.sending-area .sending-img{
+	height: 100%;
+}

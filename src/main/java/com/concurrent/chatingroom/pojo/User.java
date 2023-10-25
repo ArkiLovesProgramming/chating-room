@@ -7,6 +7,15 @@ public class User {
     private String password;
     private List<String> groups;
 
+    public User() {
+    }
+
+    public User(String username, String password, List<String> groups) {
+        this.username = username;
+        this.password = password;
+        this.groups = groups;
+    }
+
     public String getUsername() {
         return username;
     }
